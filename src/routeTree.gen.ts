@@ -10,33 +10,91 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ComoFuncionaRouteImport } from './routes/como-funciona'
+import { Route as PerfilRouteImport } from './routes/perfil'
+import { Route as ProdutosRouteImport } from './routes/produtos'
+import { Route as RankingRouteImport } from './routes/ranking'
+import { Route as RobuxRouteImport } from './routes/robux'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ComoFuncionaRoute = ComoFuncionaRouteImport.update({
+  id: '/como-funciona',
+  path: '/como-funciona',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PerfilRoute = PerfilRouteImport.update({
+  id: '/perfil',
+  path: '/perfil',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProdutosRoute = ProdutosRouteImport.update({
+  id: '/produtos',
+  path: '/produtos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RankingRoute = RankingRouteImport.update({
+  id: '/ranking',
+  path: '/ranking',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RobuxRoute = RobuxRouteImport.update({
+  id: '/robux',
+  path: '/robux',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/como-funciona': typeof ComoFuncionaRoute
+  '/perfil': typeof PerfilRoute
+  '/produtos': typeof ProdutosRoute
+  '/ranking': typeof RankingRoute
+  '/robux': typeof RobuxRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/como-funciona': typeof ComoFuncionaRoute
+  '/perfil': typeof PerfilRoute
+  '/produtos': typeof ProdutosRoute
+  '/ranking': typeof RankingRoute
+  '/robux': typeof RobuxRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/como-funciona': typeof ComoFuncionaRoute
+  '/perfil': typeof PerfilRoute
+  '/produtos': typeof ProdutosRoute
+  '/ranking': typeof RankingRoute
+  '/robux': typeof RobuxRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    '/' | '/como-funciona' | '/perfil' | '/produtos' | '/ranking' | '/robux'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/como-funciona' | '/perfil' | '/produtos' | '/ranking' | '/robux'
+  id:
+    | '__root__'
+    | '/'
+    | '/como-funciona'
+    | '/perfil'
+    | '/produtos'
+    | '/ranking'
+    | '/robux'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ComoFuncionaRoute: typeof ComoFuncionaRoute
+  PerfilRoute: typeof PerfilRoute
+  ProdutosRoute: typeof ProdutosRoute
+  RankingRoute: typeof RankingRoute
+  RobuxRoute: typeof RobuxRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +106,51 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/como-funciona': {
+      id: '/como-funciona'
+      path: '/como-funciona'
+      fullPath: '/como-funciona'
+      preLoaderRoute: typeof ComoFuncionaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/perfil': {
+      id: '/perfil'
+      path: '/perfil'
+      fullPath: '/perfil'
+      preLoaderRoute: typeof PerfilRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/produtos': {
+      id: '/produtos'
+      path: '/produtos'
+      fullPath: '/produtos'
+      preLoaderRoute: typeof ProdutosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ranking': {
+      id: '/ranking'
+      path: '/ranking'
+      fullPath: '/ranking'
+      preLoaderRoute: typeof RankingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/robux': {
+      id: '/robux'
+      path: '/robux'
+      fullPath: '/robux'
+      preLoaderRoute: typeof RobuxRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ComoFuncionaRoute: ComoFuncionaRoute,
+  PerfilRoute: PerfilRoute,
+  ProdutosRoute: ProdutosRoute,
+  RankingRoute: RankingRoute,
+  RobuxRoute: RobuxRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
