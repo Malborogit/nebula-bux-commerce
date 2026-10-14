@@ -144,7 +144,7 @@ function SearchStep({ onFound }: { onFound: (a: Account) => void }) {
   const [loading, setLoading] = useState(false);
   const search = () => {
     const n = nick.trim();
-    if (n.length < 3) return toast.error("Digite um nick válido (mín. 3 caracteres)");
+    if (n.length < 3) { toast.error("Digite um nick válido (mín. 3 caracteres)"); return; }
     setLoading(true);
     setTimeout(() => {
       const found = SAMPLE_ACCOUNTS.find((a) => a.username.toLowerCase() === n.toLowerCase());
@@ -336,7 +336,7 @@ function GamepassStep({ gp, robux, onDone }: { gp: number; robux: number; onDone
     "Copie o link (ou ID) do Passe e cole abaixo.",
   ];
   const verify = () => {
-    if (!/\d{4,}/.test(link)) return toast.error("Cole um link ou ID de Gamepass válido");
+    if (!/\d{4,}/.test(link)) { toast.error("Cole um link ou ID de Gamepass válido"); return; }
     setLoading(true); setTimeout(onDone, 1400);
   };
   return (

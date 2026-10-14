@@ -3,7 +3,7 @@ import type { Product } from "./data";
 
 export type Order = {
   id: string; type: string; description: string; total: number;
-  status: "Aprovado" | "Entregue" | "Pendente"; date: string; robloxUser?: string;
+  status: "Aprovado" | "Entregue" | "Pendente"; date: string; robloxUser?: string | undefined;
 };
 type User = { name: string; avatar: string };
 type Ctx = {

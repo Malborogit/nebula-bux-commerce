@@ -16,7 +16,7 @@ export const Route = createFileRoute("/ranking")({
 });
 
 function Ranking() {
-  const [a, b, c] = RANKING;
+  const [a, b, c] = RANKING as [typeof RANKING[0], typeof RANKING[0], typeof RANKING[0]];
   const podium = [{ r: b, pos: 2, h: "h-28" }, { r: a, pos: 1, h: "h-40" }, { r: c, pos: 3, h: "h-20" }];
   return (
     <div className="mx-auto max-w-4xl px-4 py-10">
